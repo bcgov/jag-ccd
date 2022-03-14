@@ -1,0 +1,14 @@
+name: ZAP Scan
+on:
+  workflow_dispatch:
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Scan the application
+    steps:
+      - name: ZAP Scan
+        uses: zaproxy/action-full-scan@v0.3.0
+        with:
+          target: 'https://nginx-jag-ccd-52e74e-dev.apps.silver.devops.gov.bc.ca/api/CivilFileContent'
+          token: ${{ secrets.GITHUB_TOKEN }}
