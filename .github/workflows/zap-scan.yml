@@ -12,9 +12,10 @@ jobs:
         with:
           ref: feature/zapscanner
 
-      - name: ZAP Scan
+      - name: ZAP Scan for CCD Unsecure
         uses: zaproxy/action-api-scan@v0.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          issue_title: 'ZAP Scanner Report for CCD Unsecure'
           target: 'https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws'          
           cmd_options: '-z "-configFile /zap/wrk/options.prop"'
