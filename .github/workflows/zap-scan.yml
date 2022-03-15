@@ -18,5 +18,5 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scanner for CCD Unsecure"
-          target: "https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws"       
+          target: "https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/actuator"       
           cmd_options: '-z "-configFile /zap/wrk/options.prop"'
