@@ -13,7 +13,7 @@ jobs:
           ref: feature/zapscanner
 
       - name: ZAP Scan for CCD Unsecure
-        uses: zaproxy/action-baseline@v0.3.0
+        uses: zaproxy/action-api-scan@v0.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: "owasp/zap2docker-stable"
