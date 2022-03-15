@@ -17,6 +17,5 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue_title: 'ZAP Scanner Report for CCD Unsecure'
-          target: 'https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws'
-          cmd_options: '-z "-config Authorization=Basic d3NfY2NkOnNwYXJrbGUxZGV2"'        
-          #cmd_options: '-z "-configFile /zap/wrk/options.prop"'
+          target: 'https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws'        
+          cmd_options: '-z /zap/wrk/options.prop'
