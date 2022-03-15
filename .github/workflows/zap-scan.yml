@@ -10,5 +10,6 @@ jobs:
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.3.0
         with:
-          target: 'https://nginx-jag-ccd-52e74e-dev.apps.silver.devops.gov.bc.ca/nginx-health'
+          target: 'https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws'
           token: ${{ secrets.GITHUB_TOKEN }}
+          cmd_options: '-z "-configFile options.prop"'
