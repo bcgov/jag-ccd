@@ -16,7 +16,6 @@ jobs:
         uses: zaproxy/action-api-scan@v0.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          format: "soap"
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scanner for CCD Unsecure"
           target: wsdlsfile.txt       
