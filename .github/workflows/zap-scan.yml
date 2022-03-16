@@ -5,6 +5,10 @@ on:
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        wsdl: [https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CCDUserMapping.ws:ccdUserMapping?WSDL, 
+              https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CivilFileContent.ws:CivilFileContent?WSDL]
     name: Scan the application
     steps:
       - name: Checkout
@@ -18,5 +22,6 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scanner for CCD Unsecure"
-          context_file: "wsdl.context"       
+          target: ${{ matrix.wsdl }}
+          format: "soap"      
           cmd_options: '-z "-configFile /zap/wrk/options.prop"'
