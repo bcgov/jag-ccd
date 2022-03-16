@@ -12,11 +12,20 @@ jobs:
         with:
           ref: feature/zapscanner
 
-      - name: ZAP Scan CCD Unsecure
+      - name: ZAP Scan CCD Unsecure 1
         uses: zaproxy/action-api-scan@v0.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scanner for CCD Unsecure"
-          target: wsdlsfile.txt       
+          target: "https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CCDUserMapping.ws:ccdUserMapping?WSDL"       
+          cmd_options: '-z "-configFile /zap/wrk/options.prop"'
+      
+      - name: ZAP Scan CCD Unsecure 2
+        uses: zaproxy/action-api-scan@v0.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          docker_name: "owasp/zap2docker-stable"
+          issue_title: "ZAP Scanner for CCD Unsecure"
+          target: "https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CivilFileContent.ws:CivilFileContent?WSDL"     
           cmd_options: '-z "-configFile /zap/wrk/options.prop"'
