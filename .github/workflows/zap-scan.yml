@@ -7,8 +7,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        wsdl: [https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CCDUserMapping.ws:ccdUserMapping?WSDL, 
-              https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CivilFileContent.ws:CivilFileContent?WSDL]
+        wsdl: ["https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CCDUserMapping.ws:ccdUserMapping?WSDL", 
+                "https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CivilFileContent.ws:CivilFileContent?WSDL"]
     name: Scan the application
     steps:
       - name: Checkout
