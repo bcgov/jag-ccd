@@ -5,10 +5,6 @@ on:
 jobs:
   zap_scan:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        wsdl: ["https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CCDUserMapping.ws:ccdUserMapping?WSDL", 
-                "https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CivilFileContent.ws:CivilFileContent?WSDL"]
     name: Scan the application
     steps:
       - name: Checkout
@@ -16,12 +12,22 @@ jobs:
         with:
           ref: feature/zapscanner
 
-      - name: ZAP Scan CCD Unsecure
+      - name: ZAP Scan - ccdUserMapping
         uses: zaproxy/action-api-scan@v0.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: "owasp/zap2docker-stable"
-          issue_title: "ZAP Scanner for CCD Unsecure"
-          target: ${{ matrix.wsdl }}
+          issue_title: "ZAP Scan - ccdUserMapping"
+          target: "https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CCDUserMapping.ws:ccdUserMapping?WSDL"
+          format: "soap"      
+          cmd_options: '-z "-configFile /zap/wrk/options.prop"'
+
+      - name: ZAP Scan - CivilFileContent
+        uses: zaproxy/action-api-scan@v0.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          docker_name: "owasp/zap2docker-stable"
+          issue_title: "ZAP Scan - CivilFileContent"
+          target: "https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CivilFileContent.ws:CivilFileContent?WSDL"
           format: "soap"      
           cmd_options: '-z "-configFile /zap/wrk/options.prop"'
