@@ -19,5 +19,5 @@ jobs:
           format: "soap"
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scanner for CCD Unsecure"
-          target: "wsdlsfile.txt"       
+          target: wsdlsfile.txt       
           cmd_options: '-z "-configFile /zap/wrk/options.prop"'
