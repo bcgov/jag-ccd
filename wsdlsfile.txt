@@ -1,0 +1,10 @@
+https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CCDUserMapping.ws:ccdUserMapping?WSDL
+https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CivilFileContent.ws:CivilFileContent?WSDL
+https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CodeValues.ws.provider:CodeValues?WSDL
+https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CourtLists.ws.provider:CourtList?WSDL
+https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.CriminalFileContent.ws.provider:CriminalFileContent?WSDL
+https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.GetROPReport.ws:GetROPReport?WSDL
+https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.GetUserLogin.WS:getUserLogin?WSDL
+https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.ProcessResults.ws.provider:ProcessResults?WSDL
+https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.GetDocument.ws:GetDocument?WSDL
+https://jag-ccd-1-1-52e74e-dev.apps.silver.devops.gov.bc.ca/ws/CCD.Source.DevUtil.ws:DevUtils?WSDL
