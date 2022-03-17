@@ -22,5 +22,5 @@ jobs:
           target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.ProcessResults.ws.provider:ProcessResults?WSDL" 
           format: "soap"
           issue_title: "ZAP Scan Report - ProcessResults API"
-          S: True  
+          S  
           cmd_options: '-z "-configFile /zap/wrk/options.prop"'
