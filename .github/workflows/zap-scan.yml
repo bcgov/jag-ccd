@@ -23,4 +23,4 @@ jobs:
           format: "soap"
           issue_title: "ZAP Scan Report - ProcessResults API"
           S:  
-          cmd_options: '-z "-configFile /zap/wrk/options.prop"'
+          cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
