@@ -14,113 +14,14 @@ jobs:
       
       - name: Update zap properties file
         run: echo  "replacer.full_list(0).replacement=${{ secrets.BASIC_AUTH_HEADER_UNSECURE_DEV }}" >> "$GITHUB_WORKSPACE/options.prop"
-
-      - name: ZAP Scan - CCDUserMapping API
-        uses: zaproxy/action-api-scan@v0.1.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          format: "soap"
-          docker_name: "owasp/zap2docker-stable"
-          issue_title: "ZAP Scan Report - CCDUserMapping API"
-          target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CCDUserMapping.ws:ccdUserMapping?WSDL"
-          rules_file_name: '.zap/wrk/zapscan.tsv'
-          cmd_options: '-S -z "-configfile /zap/wrk/options.prop"'
-      
-      - name: ZAP Scan - CivilFileContent API
-        uses: zaproxy/action-api-scan@v0.1.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          format: "soap"
-          docker_name: "owasp/zap2docker-stable"
-          issue_title: "ZAP Scan Report - CivilFileContent API"
-          target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CivilFileContent.ws:CivilFileContent?WSDL"
-          rules_file_name: '.zap/wrk/zapscan.tsv' 
-          cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
-      
-      - name: ZAP Scan - CodeValues API
-        uses: zaproxy/action-api-scan@v0.1.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          format: "soap"
-          docker_name: "owasp/zap2docker-stable"
-          issue_title: "ZAP Scan Report - CodeValues API"
-          target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CodeValues.ws.provider:CodeValues?WSDL"
-          rules_file_name: '.zap/wrk/zapscan.tsv'   
-          cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
-      
-      - name: ZAP Scan - CourtList API
-        uses: zaproxy/action-api-scan@v0.1.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          format: "soap"
-          docker_name: "owasp/zap2docker-stable"
-          issue_title: "ZAP Scan Report - CourtList API"
-          target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CourtLists.ws.provider:CourtList?WSDL"
-          rules_file_name: '.zap/wrk/zapscan.tsv'
-          cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
-      
-      - name: ZAP Scan - CriminalFileContent API
-        uses: zaproxy/action-api-scan@v0.1.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          format: "soap"
-          docker_name: "owasp/zap2docker-stable"
-          issue_title: "ZAP Scan Report - CriminalFileContent API"
-          target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CriminalFileContent.ws.provider:CriminalFileContent?WSDL"
-          rules_file_name: '.zap/wrk/zapscan.tsv'
-          cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
-
-      - name: ZAP Scan - GetROPReport API
-        uses: zaproxy/action-api-scan@v0.1.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          format: "soap"
-          docker_name: "owasp/zap2docker-stable"
-          issue_title: "ZAP Scan Report - GetROPReport API"
-          target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.GetROPReport.ws:GetROPReport?WSDL"
-          rules_file_name: '.zap/wrk/zapscan.tsv'
-          cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
-      
-      - name: ZAP Scan - GetUserLogin API
-        uses: zaproxy/action-api-scan@v0.1.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          format: "soap"
-          docker_name: "owasp/zap2docker-stable"
-          issue_title: "ZAP Scan Report - GetUserLogin API"
-          target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.GetUserLogin.WS:getUserLogin?WSDL"
-          rules_file_name: '.zap/wrk/zapscan.tsv'
-          cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
-      
-      - name: ZAP Scan - ProcessResults API
-        uses: zaproxy/action-api-scan@v0.1.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          format: "soap"
-          docker_name: "owasp/zap2docker-stable"
-          issue_title: "ZAP Scan Report - ProcessResults API"
-          target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.ProcessResults.ws.provider:ProcessResults?WSDL"
-          rules_file_name: '.zap/wrk/zapscan.tsv'
-          cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
-      
-      - name: ZAP Scan - GetDocument API
-        uses: zaproxy/action-api-scan@v0.1.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          format: "soap"
-          docker_name: "owasp/zap2docker-stable"
-          issue_title: "ZAP Scan Report - GetDocument API"
-          target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.GetDocument.ws:GetDocument?WSDL"
-          rules_file_name: '.zap/wrk/zapscan.tsv'
-          cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
       
       - name: ZAP Scan - DevUtil API
         uses: zaproxy/action-api-scan@v0.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          format: "soap"
-          docker_name: "owasp/zap2docker-stable"
-          issue_title: "ZAP Scan Report - DevUtil API"
-          target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.DevUtil.ws:DevUtils?WSDL"
-          rules_file_name: '.zap/wrk/zapscan.tsv'
+          format: soap
+          docker_name: 'owasp/zap2docker-stable'
+          issue_title: 'ZAP Scan Report - DevUtil API'
+          target: '${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.DevUtil.ws:DevUtils?WSDL'
+          rules_file_name: 'zapscan.tsv'
           cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
