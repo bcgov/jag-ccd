@@ -23,7 +23,7 @@ jobs:
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scan Report - CCDUserMapping API"
           target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CCDUserMapping.ws:ccdUserMapping?WSDL"
-          config_file: "/zap/wrk/zapscan.conf"
+          rules_file_name: "/zap/wrk/zapscan.conf"
           cmd_options: '-S -z "-configfile /zap/wrk/options.prop"'
       
       - name: ZAP Scan - CivilFileContent API
@@ -34,7 +34,7 @@ jobs:
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scan Report - CivilFileContent API"
           target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CivilFileContent.ws:CivilFileContent?WSDL"
-          config_file: "/zap/wrk/zapscan.conf"  
+          rules_file_name: "/zap/wrk/zapscan.conf"  
           cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
       
       - name: ZAP Scan - CodeValues API
@@ -45,7 +45,7 @@ jobs:
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scan Report - CodeValues API"
           target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CodeValues.ws.provider:CodeValues?WSDL"
-          config_file: "/zap/wrk/zapscan.conf"    
+          rules_file_name: "/zap/wrk/zapscan.conf"    
           cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
       
       - name: ZAP Scan - CourtList API
@@ -56,7 +56,7 @@ jobs:
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scan Report - CourtList API"
           target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CourtLists.ws.provider:CourtList?WSDL"
-          config_file: "/zap/wrk/zapscan.conf" 
+          rules_file_name: "/zap/wrk/zapscan.conf" 
           cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
       
       - name: ZAP Scan - CriminalFileContent API
@@ -67,7 +67,7 @@ jobs:
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scan Report - CriminalFileContent API"
           target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CriminalFileContent.ws.provider:CriminalFileContent?WSDL"
-          config_file: "/zap/wrk/zapscan.conf"
+          rules_file_name: "/zap/wrk/zapscan.conf"
           cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
 
       - name: ZAP Scan - GetROPReport API
@@ -78,7 +78,7 @@ jobs:
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scan Report - GetROPReport API"
           target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.GetROPReport.ws:GetROPReport?WSDL"
-          config_file: "/zap/wrk/zapscan.conf"
+          rules_file_name: "/zap/wrk/zapscan.conf"
           cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
       
       - name: ZAP Scan - GetUserLogin API
@@ -89,7 +89,7 @@ jobs:
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scan Report - GetUserLogin API"
           target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.GetUserLogin.WS:getUserLogin?WSDL"
-          config_file: "/zap/wrk/zapscan.conf"
+          rules_file_name: "/zap/wrk/zapscan.conf"
           cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
       
       - name: ZAP Scan - ProcessResults API
@@ -100,7 +100,7 @@ jobs:
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scan Report - ProcessResults API"
           target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.ProcessResults.ws.provider:ProcessResults?WSDL"
-          config_file: "/zap/wrk/zapscan.conf"
+          rules_file_name: "/zap/wrk/zapscan.conf"
           cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
       
       - name: ZAP Scan - GetDocument API
@@ -111,7 +111,7 @@ jobs:
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scan Report - GetDocument API"
           target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.GetDocument.ws:GetDocument?WSDL"
-          config_file: "/zap/wrk/zapscan.conf"
+          rules_file_name: "/zap/wrk/zapscan.conf"
           cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
       
       - name: ZAP Scan - DevUtil API
@@ -122,5 +122,5 @@ jobs:
           docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scan Report - DevUtil API"
           target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.DevUtil.ws:DevUtils?WSDL"
-          config_file: "/zap/wrk/zapscan.conf"
+          rules_file_name: "/zap/wrk/zapscan.conf"
           cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
