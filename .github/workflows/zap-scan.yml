@@ -20,7 +20,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           format: "soap"
-          docker_name: "owasp/zap2docker-stable"
           issue_title: "ZAP Scan Report - DevUtil API"
           target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.DevUtil.ws:DevUtils?WSDL"     
           cmd_options: '-z "-configFile /zap/wrk/options.prop"'
