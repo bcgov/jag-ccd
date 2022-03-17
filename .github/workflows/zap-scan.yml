@@ -13,7 +13,7 @@ jobs:
           ref: feature/zapscanner
       
       - name: Update options prop file
-        run: echo "${{env.GITHUB_WORKSPACE}}"
+        run: echo "$GITHUB_WORKSPACE"
 
       - name: ZAP Scan - CCDUserMapping API
         uses: zaproxy/action-api-scan@v0.1.0
