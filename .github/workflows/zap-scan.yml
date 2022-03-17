@@ -1,4 +1,4 @@
-name: ZAP Scan - CCD WSDLS
+name: ZAP Scan
 on:
   workflow_dispatch:
 
@@ -12,6 +12,12 @@ jobs:
         with:
           ref: feature/zapscanner
 
-      - name: ZAP Automation
+      - name: ZAP Scan - CCDUserMapping API
         uses: zaproxy/action-api-scan@v0.1.0
-        run: ./zap.sh
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          format: "soap"
+          docker_name: "owasp/zap2docker-stable"
+          issue_title: "ZAP Scan Report - CCDUserMapping API"
+          target: "${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CCDUserMapping.ws:ccdUserMapping?WSDL"   
+          cmd_options: '-z "-configFile /zap/wrk/options.prop"'
