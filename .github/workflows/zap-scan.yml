@@ -12,8 +12,8 @@ jobs:
         with:
           ref: feature/zapscanner
       
-      -name: Update options prop file
-       run: echo  "replacer.full_list(0).replacement=${{ secrets.BASIC_AUTH_HEADER_UNSECURE_DEV }}" >> options.prop
+      - name: Update options prop file
+        run: echo  "replacer.full_list(0).replacement=${{ secrets.BASIC_AUTH_HEADER_UNSECURE_DEV }}" >> options.prop
 
       - name: ZAP Scan - CCDUserMapping API
         uses: zaproxy/action-api-scan@v0.1.0
