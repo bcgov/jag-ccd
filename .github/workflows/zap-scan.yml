@@ -1,4 +1,4 @@
-name: ZAP Scan
+name: ZAP Scanner for CCD APIs
 on:
   workflow_dispatch:
 
