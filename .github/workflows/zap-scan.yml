@@ -23,6 +23,5 @@ jobs:
           docker_name: 'owasp/zap2docker-stable'
           issue_title: 'ZAP Scan Report - DevUtil API'
           target: '${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.DevUtil.ws:DevUtils?WSDL'
-          rules_file_name: rules.tsv
           fail_action: true
-          cmd_options: '-c "rules.conf" -S -z "-configFile /zap/wrk/options.prop"'
+          cmd_options: '-c "zaprules.conf" -S -z "-configFile /zap/wrk/zapoptions.prop"'
