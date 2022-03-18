@@ -13,7 +13,7 @@ jobs:
           ref: feature/zapscanner
       
       - name: Update zap properties file
-        run: echo  "replacer.full_list(0).replacement=${{ secrets.BASIC_AUTH_HEADER_UNSECURE_DEV }}" >> "$GITHUB_WORKSPACE/options.prop"
+        run: echo  "replacer.full_list(0).replacement=${{ secrets.BASIC_AUTH_HEADER_UNSECURE_DEV }}" >> "$GITHUB_WORKSPACE/zapoptions.prop"
       
       - name: ZAP Scan - DevUtil API
         uses: zaproxy/action-api-scan@v0.1.0
