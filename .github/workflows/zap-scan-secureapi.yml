@@ -26,7 +26,7 @@ jobs:
           fail_action: true
           cmd_options: '-c "zaprules.conf" -S -z "-configFile /zap/wrk/zapoptions_secureapi.prop"'
       
-       - name: ZAP Scan - CodeValues Secure API
+      - name: ZAP Scan - CodeValues Secure API
         uses: zaproxy/action-api-scan@v0.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
