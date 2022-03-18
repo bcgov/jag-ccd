@@ -1,0 +1,82 @@
+name: ZAP Scanner for CCD Secure APIs
+on:
+  workflow_dispatch:
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Scan the application
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: feature/zapscanner
+      
+      - name: Update zap properties file
+        run: echo  "replacer.full_list(0).replacement=${{ secrets.BASIC_AUTH_HEADER_SECURE_DEV }}" >> "$GITHUB_WORKSPACE/zapoptions_secureapi.prop"
+      
+      - name: ZAP Scan - CivilFileContent Secure API
+        uses: zaproxy/action-api-scan@v0.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          format: soap
+          docker_name: 'owasp/zap2docker-stable'
+          issue_title: 'ZAP Scan Report - CivilFileContent Secure API'
+          target: '${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CivilFileContent.ws:CivilFileContentSecure'
+          fail_action: true
+          cmd_options: '-c "zaprules.conf" -S -z "-configFile /zap/wrk/zapoptions_secureapi.prop"'
+      
+       - name: ZAP Scan - CodeValues Secure API
+        uses: zaproxy/action-api-scan@v0.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          format: soap
+          docker_name: 'owasp/zap2docker-stable'
+          issue_title: 'ZAP Scan Report - CodeValues Secure API'
+          target: '${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CodeValues.ws.provider:CodeValuesSecure'
+          fail_action: true
+          cmd_options: '-c "zaprules.conf" -S -z "-configFile /zap/wrk/zapoptions_secureapi.prop"'
+      
+      - name: ZAP Scan - CourtList Secure API
+        uses: zaproxy/action-api-scan@v0.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          format: soap
+          docker_name: 'owasp/zap2docker-stable'
+          issue_title: 'ZAP Scan Report - CourtList Secure API'
+          target: '${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CourtLists.ws.provider:CourtListSecure'
+          fail_action: true
+          cmd_options: '-c "zaprules.conf" -S -z "-configFile /zap/wrk/zapoptions_secureapi.prop"'
+      
+      - name: ZAP Scan - CriminalFileContent Secure API
+        uses: zaproxy/action-api-scan@v0.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          format: soap
+          docker_name: 'owasp/zap2docker-stable'
+          issue_title: 'ZAP Scan Report - CriminalFileContent Secure API'
+          target: '${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.CriminalFileContent.ws.provider:CriminalFileContentSecure'
+          fail_action: true
+          cmd_options: '-c "zaprules.conf" -S -z "-configFile /zap/wrk/zapoptions_secureapi.prop"'
+      
+      - name: ZAP Scan - GetROPReport Secure API
+        uses: zaproxy/action-api-scan@v0.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          format: soap
+          docker_name: 'owasp/zap2docker-stable'
+          issue_title: 'ZAP Scan Report - GetROPReport Secure API'
+          target: '${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.GetROPReport.ws:GetROPReportSecure'
+          fail_action: true
+          cmd_options: '-c "zaprules.conf" -S -z "-configFile /zap/wrk/zapoptions_secureapi.prop"'
+      
+      - name: ZAP Scan - GetDocument Secure API
+        uses: zaproxy/action-api-scan@v0.1.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          format: soap
+          docker_name: 'owasp/zap2docker-stable'
+          issue_title: 'ZAP Scan Report - GetDocument Secure API'
+          target: '${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.GetDocument.ws:GetDocumentSecure'
+          fail_action: true
+          cmd_options: '-c "zaprules.conf" -S -z "-configFile /zap/wrk/zapoptions_secureapi.prop"'
