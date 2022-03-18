@@ -24,4 +24,5 @@ jobs:
           issue_title: 'ZAP Scan Report - DevUtil API'
           target: '${{ secrets.JAG_CCD_UnSecureAPI_RouteUrl }}/ws/CCD.Source.DevUtil.ws:DevUtils?WSDL'
           rules_file_name: rules.tsv
-          cmd_options: '-S -z "-configFile /zap/wrk/options.prop"'
+          fail_action: true
+          cmd_options: '"-c rules.conf" -S -z "-configFile /zap/wrk/options.prop"'
