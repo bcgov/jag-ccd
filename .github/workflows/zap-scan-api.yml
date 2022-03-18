@@ -1,6 +1,11 @@
 name: ZAP Scanner for CCD APIs
 on:
+  # Runs on manual execution
   workflow_dispatch:
+
+  schedule:
+    # Runs every Sat mid night
+    - cron:  '01 00 * * 6'
 
 jobs:
   zap_scan:
