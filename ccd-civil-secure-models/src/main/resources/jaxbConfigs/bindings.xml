@@ -12,8 +12,7 @@
         </jxb:schemaBindings>
         <jxb:bindings>
 
-            <!-- Additional @XmlNs prefix declarations to take effect for this schema/package -->
-            <namespace:prefix name="xsi" namespaceURI="http://www.w3.org/2001/XMLSchema-instance" />
+
         </jxb:bindings>
     </jxb:bindings>
 </jxb:bindings>

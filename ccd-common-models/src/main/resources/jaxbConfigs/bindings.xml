@@ -12,8 +12,7 @@
         </jxb:schemaBindings>
         <jxb:bindings>
 
-            <!-- Additional @XmlNs prefix declarations to take effect for this schema/package -->
-            <namespace:prefix name="xsi" namespaceURI="http://www.w3.org/2001/XMLSchema-instance" />
+
         </jxb:bindings>
     </jxb:bindings>
     <jxb:bindings choiceContentProperty="true" schemaLocation="../xsdSchemas/codeValues.xsd">
@@ -22,8 +21,7 @@
         </jxb:schemaBindings>
         <jxb:bindings>
 
-            <!-- Additional @XmlNs prefix declarations to take effect for this schema/package -->
-            <namespace:prefix name="xsi" namespaceURI="http://www.w3.org/2001/XMLSchema-instance" />
+
         </jxb:bindings>
     </jxb:bindings>
     <jxb:bindings choiceContentProperty="true" schemaLocation="../xsdSchemas/codeValuesSecure.xsd">
@@ -32,8 +30,7 @@
         </jxb:schemaBindings>
         <jxb:bindings>
 
-            <!-- Additional @XmlNs prefix declarations to take effect for this schema/package -->
-            <namespace:prefix name="xsi" namespaceURI="http://www.w3.org/2001/XMLSchema-instance" />
+
         </jxb:bindings>
     </jxb:bindings>
     <jxb:bindings choiceContentProperty="true" schemaLocation="../xsdSchemas/criminalFileContent.xsd">
@@ -42,8 +39,7 @@
         </jxb:schemaBindings>
         <jxb:bindings>
 
-            <!-- Additional @XmlNs prefix declarations to take effect for this schema/package -->
-            <namespace:prefix name="xsi" namespaceURI="http://www.w3.org/2001/XMLSchema-instance" />
+
         </jxb:bindings>
     </jxb:bindings>
     <jxb:bindings collectionType="java.util.LinkedList" choiceContentProperty="true" schemaLocation="../xsdSchemas/criminalFileContentSecure.xsd">
@@ -52,8 +48,7 @@
         </jxb:schemaBindings>
         <jxb:bindings>
 
-            <!-- Additional @XmlNs prefix declarations to take effect for this schema/package -->
-            <namespace:prefix name="xsi" namespaceURI="http://www.w3.org/2001/XMLSchema-instance" />
+
         </jxb:bindings>
     </jxb:bindings>
     <jxb:bindings choiceContentProperty="true" schemaLocation="../xsdSchemas/getRopReport.xsd">
@@ -62,8 +57,7 @@
         </jxb:schemaBindings>
         <jxb:bindings>
 
-            <!-- Additional @XmlNs prefix declarations to take effect for this schema/package -->
-            <namespace:prefix name="xsi" namespaceURI="http://www.w3.org/2001/XMLSchema-instance" />
+
         </jxb:bindings>
     </jxb:bindings>
     <jxb:bindings choiceContentProperty="true" schemaLocation="../xsdSchemas/getRopReportSecure.xsd">
@@ -72,8 +66,7 @@
         </jxb:schemaBindings>
         <jxb:bindings>
 
-            <!-- Additional @XmlNs prefix declarations to take effect for this schema/package -->
-            <namespace:prefix name="xsi" namespaceURI="http://www.w3.org/2001/XMLSchema-instance" />
+
         </jxb:bindings>
     </jxb:bindings>
     <jxb:bindings collectionType="java.util.LinkedList" choiceContentProperty="true" schemaLocation="../xsdSchemas/getUserLogin.xsd">
@@ -82,8 +75,7 @@
         </jxb:schemaBindings>
         <jxb:bindings>
 
-            <!-- Additional @XmlNs prefix declarations to take effect for this schema/package -->
-            <namespace:prefix name="xsi" namespaceURI="http://www.w3.org/2001/XMLSchema-instance" />
+
         </jxb:bindings>
     </jxb:bindings>
     <jxb:bindings choiceContentProperty="true" schemaLocation="../xsdSchemas/proccessResults.xsd">
@@ -92,8 +84,7 @@
         </jxb:schemaBindings>
         <jxb:bindings>
 
-            <!-- Additional @XmlNs prefix declarations to take effect for this schema/package -->
-            <namespace:prefix name="xsi" namespaceURI="http://www.w3.org/2001/XMLSchema-instance" />
+
         </jxb:bindings>
     </jxb:bindings>
     <jxb:bindings choiceContentProperty="true" schemaLocation="../xsdSchemas/getDocument.xsd">
@@ -102,8 +93,7 @@
         </jxb:schemaBindings>
         <jxb:bindings>
 
-            <!-- Additional @XmlNs prefix declarations to take effect for this schema/package -->
-            <namespace:prefix name="xsi" namespaceURI="http://www.w3.org/2001/XMLSchema-instance" />
+
         </jxb:bindings>
     </jxb:bindings>
     <jxb:bindings choiceContentProperty="true" schemaLocation="../xsdSchemas/getDocumentSecure.xsd">
@@ -112,8 +102,7 @@
         </jxb:schemaBindings>
         <jxb:bindings>
 
-            <!-- Additional @XmlNs prefix declarations to take effect for this schema/package -->
-            <namespace:prefix name="xsi" namespaceURI="http://www.w3.org/2001/XMLSchema-instance" />
+
         </jxb:bindings>
     </jxb:bindings>
     <jxb:bindings choiceContentProperty="true" schemaLocation="../xsdSchemas/getDevUtils.xsd">
@@ -122,8 +111,7 @@
         </jxb:schemaBindings>
         <jxb:bindings>
 
-            <!-- Additional @XmlNs prefix declarations to take effect for this schema/package -->
-            <namespace:prefix name="xsi" namespaceURI="http://www.w3.org/2001/XMLSchema-instance" />
+
         </jxb:bindings>
     </jxb:bindings>
 </jxb:bindings>
