@@ -16,12 +16,12 @@ on:
             required: true
             default: 'dev'
         silver_deploy:
-          description: 'define if the deployment should happen on silver cluster'
+          description: 'test the code against the silver cluster'
           required: false
           type: boolean
           default: true
         gold_deploy:
-          description: 'define if the deployment should happen on gold cluster'
+          description: 'test the code against the gold cluster'
           required: false
           type: boolean
           default: false
