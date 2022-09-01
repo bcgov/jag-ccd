@@ -53,3 +53,7 @@ CcdUserMapping-*-FAILED.txt
 /CCDGetCivilFileContentSecure-soapui-project.xml
 /CCDGetRopReportSecure-soapui-project.xml
 /CCDCodeValuesSecure-soapui-project.xml
+
+## macOS ##
+.DS_STORE
+.java-version
