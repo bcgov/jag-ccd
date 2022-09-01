@@ -8,5 +8,3 @@
 1) Login to OC using login command
 2) Run below command in each env. namespace dev/test/prod/tools
    ``oc process -f nginx_jag_ccd.yaml --param-file=nginx_jag_ccd.env | oc apply -f -``
-
-### Template for Nginx 2 - To reverse proxy the traffic from Nginx 1 to the old webmethods api.
