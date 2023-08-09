@@ -50,7 +50,7 @@ public class DocumentController {
             localPart = "getDocument")
     @ResponsePayload
     public GetDocumentResponse getDocument(@RequestPayload GetDocument document)
-            throws JsonProcessingException {
+            throws JsonProcessingException, InterruptedException {
 
         var inner =
                 document.getDocumentRequest() != null
@@ -84,6 +84,8 @@ public class DocumentController {
             throw new ORDSException();
         }
 
+        log.info("got ords");
+
         if (resp != null && resp.getBody() != null) {
             var body = resp.getBody();
             String resultCd = body.get("resultCd");
@@ -106,6 +108,9 @@ public class DocumentController {
 
             // request uri to get base64 document
 
+            Thread.sleep(10000);
+            log.info("before sending to einformation");
+
             try {
                 // get the ticket
                 url = URLDecoder.decode(url, StandardCharsets.UTF_8);
@@ -116,12 +121,18 @@ public class DocumentController {
                                 HttpMethod.GET,
                                 new HttpEntity<>(new HttpHeaders()),
                                 byte[].class);
+                Thread.sleep(10000);
+                log.info("got from einformation");
 
                 String bs64 =
                         resp2.getBody() != null ? Base64Utils.encodeToString(resp2.getBody()) : "";
 
                 var out = new GetDocumentResponse();
                 var one = new DocumentResult();
+
+                Thread.sleep(10000);
+                log.info("set b64");
+
                 one.setB64Content(bs64);
                 out.setDocumentResponse(one);
                 one.setResultCd(resultCd);
@@ -129,6 +140,9 @@ public class DocumentController {
                 log.info(
                         objectMapper.writeValueAsString(
                                 new RequestSuccessLog("Request Success", "getDocument")));
+
+                Thread.sleep(10000);
+                log.info("return out");
                 return out;
             } catch (Exception ex) {
                 log.error(

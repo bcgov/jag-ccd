@@ -33,7 +33,7 @@ public class DocumentControllerTests {
     @Mock private RestTemplate restTemplate = new RestTemplate();
 
     @Test
-    public void getDocumentTest() throws JsonProcessingException {
+    public void getDocumentTest() throws JsonProcessingException, InterruptedException {
 
         var req = new GetDocument();
         var one = new Document();
