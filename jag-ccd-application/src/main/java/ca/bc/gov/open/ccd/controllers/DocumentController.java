@@ -51,6 +51,10 @@ public class DocumentController {
     @ResponsePayload
     public GetDocumentResponse getDocument(@RequestPayload GetDocument document)
             throws JsonProcessingException, InterruptedException {
+        log.info("start");
+        log.info("totalMemory: " + Long.toString(Runtime.getRuntime().totalMemory()));
+        log.info("maxMemory: " + Long.toString(Runtime.getRuntime().maxMemory()));
+        log.info("freeMemory: " + Long.toString(Runtime.getRuntime().freeMemory()));
 
         var inner =
                 document.getDocumentRequest() != null
@@ -131,6 +135,7 @@ public class DocumentController {
                         objectMapper.writeValueAsString(
                                 new RequestSuccessLog("Request Success", "getDocument")));
 
+                log.info("before out");
                 log.info("totalMemory: " + Long.toString(Runtime.getRuntime().totalMemory()));
                 log.info("maxMemory: " + Long.toString(Runtime.getRuntime().maxMemory()));
                 log.info("freeMemory: " + Long.toString(Runtime.getRuntime().freeMemory()));
