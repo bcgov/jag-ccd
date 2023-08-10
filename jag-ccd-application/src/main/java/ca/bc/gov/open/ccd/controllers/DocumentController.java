@@ -45,6 +45,12 @@ public class DocumentController {
         this.objectMapper = objectMapper;
     }
 
+    public static String formatSize(long v) {
+        if (v < 1024) return v + " B";
+        int z = (63 - Long.numberOfLeadingZeros(v)) / 10;
+        return String.format("%.1f %sB", (double) v / (1L << (z * 10)), " KMGTPE".charAt(z));
+    }
+
     @PayloadRoot(
             namespace = "http://courts.gov.bc.ca/CCD.Source.GetDocument.ws:GetDocument",
             localPart = "getDocument")
@@ -52,9 +58,9 @@ public class DocumentController {
     public GetDocumentResponse getDocument(@RequestPayload GetDocument document)
             throws JsonProcessingException, InterruptedException {
         log.info("start");
-        log.info("totalMemory: " + Long.toString(Runtime.getRuntime().totalMemory()));
-        log.info("maxMemory: " + Long.toString(Runtime.getRuntime().maxMemory()));
-        log.info("freeMemory: " + Long.toString(Runtime.getRuntime().freeMemory()));
+        log.info("totalMemory: " + formatSize(Runtime.getRuntime().totalMemory()));
+        log.info("maxMemory: " + formatSize(Runtime.getRuntime().maxMemory()));
+        log.info("freeMemory: " + formatSize(Runtime.getRuntime().freeMemory()));
 
         var inner =
                 document.getDocumentRequest() != null
@@ -136,9 +142,9 @@ public class DocumentController {
                                 new RequestSuccessLog("Request Success", "getDocument")));
 
                 log.info("before out");
-                log.info("totalMemory: " + Long.toString(Runtime.getRuntime().totalMemory()));
-                log.info("maxMemory: " + Long.toString(Runtime.getRuntime().maxMemory()));
-                log.info("freeMemory: " + Long.toString(Runtime.getRuntime().freeMemory()));
+                log.info("totalMemory: " + formatSize(Runtime.getRuntime().totalMemory()));
+                log.info("maxMemory: " + formatSize(Runtime.getRuntime().maxMemory()));
+                log.info("freeMemory: " + formatSize(Runtime.getRuntime().freeMemory()));
 
                 Thread.sleep(10000);
                 log.info("before returning out");
