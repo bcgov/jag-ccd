@@ -145,6 +145,11 @@ public class DocumentController {
 
                 return out;
             } catch (Exception ex) {
+
+                log.info(ex.getMessage());
+                log.info("in catch block");
+                Thread.sleep(10000);
+
                 log.error(
                         objectMapper.writeValueAsString(
                                 new OrdsErrorLog(
