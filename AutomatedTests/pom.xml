@@ -62,7 +62,7 @@
                     <artifactId>guava</artifactId>
                 </exclusion>
             </exclusions>
-            <version>2.5.14</version>
+            <version>3.0.11</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
