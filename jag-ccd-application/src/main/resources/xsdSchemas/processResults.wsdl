@@ -726,14 +726,12 @@
             </xsd:complexType>
             <xsd:complexType name="BanInfoType">
                 <xsd:sequence>
-                    <xsd:element name="ActionCd" nillable="true" type="xsd:string"/>
-                    <xsd:element name="BanType" nillable="true" type="xsd:string"/>
-                    <xsd:element name="OrderedDate" nillable="true" type="xsd:string"/>
-                    <xsd:element name="BanStatuteId" nillable="true" type="xsd:string"/>
-                    <xsd:element name="BanOtherStatuteDsc" nillable="true" type="xsd:string"/>
-                    <xsd:element name="ExpiredDate" nillable="true" type="xsd:string"/>
-                    <xsd:element name="BanCommentText" nillable="true" type="xsd:string"/>
-                    <xsd:element name="AcprId" nillable="true" type="xsd:string"/>
+                    <xsd:element name="BanStatusCd" type="xsd:string"/>
+                    <xsd:element name="BanTypeCd" type="xsd:string"/>
+                    <xsd:element name="BanStatusDate" type="xsd:string"/>
+                    <xsd:element name="BanStatuteId" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="BanStatusComment" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="AcprSeqNo" type="xsd:string" minOccurs="0"/>
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:complexType name="processBanResponse">
