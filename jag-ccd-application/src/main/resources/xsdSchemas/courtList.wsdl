@@ -58,7 +58,7 @@
                     <xsd:element name="CrownLocationCd" type="xsd:string" minOccurs="0"/>
                     <xsd:element name="ParticipantRoleCd" type="xsd:string" minOccurs="0"/>
                     <xsd:element name="ParticipantRoleDsc" type="xsd:string" minOccurs="0"/>
-                    <xsd:element name="AccusedNotRequiredYN" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+<!--                    <xsd:element name="AccusedNotRequiredYN" type="xsd:string" minOccurs="0" maxOccurs="1"/>-->
                     <xsd:element name="AttendanceMethod" type="tns:AttendanceMethod" minOccurs="0" maxOccurs="unbounded"/>
                     <xsd:element name="AppearanceCount" nillable="true" type="tns:AppearanceCount" minOccurs="0" maxOccurs="unbounded"/>
                     <xsd:element name="Bans" type="tns:Bans" minOccurs="0" maxOccurs="unbounded"/>

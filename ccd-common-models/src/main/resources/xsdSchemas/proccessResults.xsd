@@ -587,7 +587,7 @@
             <xsd:element name="Language" nillable="true" type="xsd:string"/>
             <xsd:element name="AppearanceId" nillable="true" type="xsd:string"/>
             <xsd:element name="NotifySchedulerOnlyYN" nillable="true" type="xsd:string"/>
-            <xsd:element name="AccusedNotRequiredYN" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+<!--            <xsd:element name="AccusedNotRequiredYN" type="xsd:string" minOccurs="0" maxOccurs="1"/>-->
             <xsd:element name="NextAppMethod" nillable="true" type="tns:NextAppearanceMethodCRType"
                          maxOccurs="unbounded"/>
         </xsd:sequence>
