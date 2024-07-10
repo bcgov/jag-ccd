@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" name="CodeValues" targetNamespace="http://brooks/CCD.Source.CodeValues.ws.provider:CodeValues" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soapjms="http://www.w3.org/2008/07/soap/bindings/JMS/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://brooks/CCD.Source.CodeValues.ws.provider:CodeValues" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+    <wsdl:types>
+        <xsd:schema targetNamespace="http://brooks/CCD.Source.CodeValues.ws.provider:CodeValues" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://brooks/CCD.Source.CodeValues.ws.provider:CodeValues">
+            <xsd:complexType name="getCodeValues">
+                <xsd:sequence>
+                    <xsd:element name="lastRetrievedDate" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="getCodeValuesResponse">
+                <xsd:sequence>
+                    <xsd:element name="CeisCodeValues" nillable="true" type="tns:CodeValues"/>
+                    <xsd:element name="JustinCodeValues" nillable="true" type="tns:CodeValues"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="CodeValues">
+                <xsd:sequence>
+                    <xsd:element name="CodeValue" nillable="true" type="tns:CodeValue" maxOccurs="unbounded"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="CodeValue">
+                <xsd:sequence>
+                    <xsd:element name="codeType" nillable="true" type="xsd:string"/>
+                    <xsd:element name="code" nillable="true" type="xsd:string"/>
+                    <xsd:element name="shortDesc" nillable="true" type="xsd:string"/>
+                    <xsd:element name="longDesc" nillable="true" type="xsd:string"/>
+                    <xsd:element name="flex" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:element name="getCodeValues" type="tns:getCodeValues"/>
+            <xsd:element name="getCodeValuesResponse" type="tns:getCodeValuesResponse"/>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="CodeValues_PortType_getCodeValues">
+        <wsdl:part name="parameters" element="tns:getCodeValues">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="CodeValues_PortType_getCodeValuesResponse">
+        <wsdl:part name="parameters" element="tns:getCodeValuesResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="CodeValues_PortType">
+        <wsdl:operation name="getCodeValues">
+            <wsdl:input message="tns:CodeValues_PortType_getCodeValues">
+            </wsdl:input>
+            <wsdl:output message="tns:CodeValues_PortType_getCodeValuesResponse">
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="CCD_Source_CodeValues_ws_provider_CodeValues_Binder" type="tns:CodeValues_PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getCodeValues">
+            <soap:operation soapAction="CCD_Source_CodeValues_ws_provider_CodeValues_Binder_getCodeValues" style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="CodeValues">
+        <wsdl:port name="CCD_Source_CodeValues_ws_provider_CodeValues_Port" binding="tns:CCD_Source_CodeValues_ws_provider_CodeValues_Binder">
+            <soap:address location="http://reeks.bcgov:5555/ws/CCD.Source.CodeValues.ws.provider:CodeValues/CCD_Source_CodeValues_ws_provider_CodeValues_Port"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>
