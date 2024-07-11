@@ -89,6 +89,7 @@
             <xsd:element name="HearingRestriction" nillable="true" type="tns:HearingRestrictionType" minOccurs="0"
                          maxOccurs="unbounded"/>
             <xsd:element name="CFCOrder" nillable="true" type="tns:CFCOrderType" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="Arraignment" nillable="true" type="tns:ArraignmentType" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
 
@@ -289,6 +290,16 @@
             <xsd:element name="CFCOrderIssueDate" nillable="true" type="xsd:dateTime"/>
             <xsd:element name="OrderTypeDsc" nillable="true" type="xsd:string"/>
             <xsd:element name="CFCConditionText" nillable="true" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ArraignmentType">
+        <xsd:sequence>
+            <xsd:element name="EnglishTrialYn" nillable="true" type="xsd:string"/>
+            <xsd:element name="FrenchTrialYn" nillable="true" type="xsd:string"/>
+            <xsd:element name="BilingualTrialYn" nillable="true" type="xsd:string"/>
+            <xsd:element name="NoneForTrialYn" nillable="true" type="xsd:string"/>
+            <xsd:element name="LanguageRightsAdvisedByCourtYn" nillable="true" type="xsd:string"/>
         </xsd:sequence>
     </xsd:complexType>
 
