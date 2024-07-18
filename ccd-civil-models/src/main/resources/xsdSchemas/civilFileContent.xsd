@@ -62,6 +62,7 @@
             <xsd:element name="FileCommentText" nillable="true" type="xsd:string"/>
             <xsd:element name="SealedYN" nillable="true" type="xsd:string"/>
             <xsd:element name="SheriffCommentText" nillable="true" type="xsd:string"/>
+            <xsd:element name="IndigenousLawFileYn" nillable="true" type="xsd:string"/>
             <xsd:element name="FileLocaAgencyIdentifierCd" nillable="true" type="xsd:string"/>
             <xsd:element name="SpecialProgram" nillable="true" type="tns:SpecialProgramType" maxOccurs="unbounded"/>
             <xsd:element name="PreviousAppearance" nillable="true" type="tns:PreviousAppearanceType"
