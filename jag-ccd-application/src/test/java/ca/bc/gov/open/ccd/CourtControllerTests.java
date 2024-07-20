@@ -239,6 +239,16 @@ public class CourtControllerTests {
 
         crl.getCFCOrder().add(co);
 
+        var arraignmentType = new ArraignmentType();
+        arraignmentType.setBilingualTrialYn("Y");
+        arraignmentType.setEnglishTrialYn("Y");
+        arraignmentType.setFrenchTrialYn("Y");
+        arraignmentType.setNoneForTrialYn("Y");
+        arraignmentType.setLanguageNotificationFiledYn("Y");
+        arraignmentType.setLanguageRightsAdvisedByCourtYn("Y");
+
+        crl.getArraignment().add(arraignmentType);
+
         var crl2 = new CivilCourtListType();
         crl2.setAppearanceId("A");
         crl2.setAppearanceTime("A");
