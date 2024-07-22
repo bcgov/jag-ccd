@@ -300,7 +300,6 @@
             <xsd:element name="BilingualTrialYn" nillable="true" type="xsd:string"/>
             <xsd:element name="NoneForTrialYn" nillable="true" type="xsd:string"/>
             <xsd:element name="LanguageRightsAdvisedByCourtYn" nillable="true" type="xsd:string"/>
-            <xsd:element name="LanguageNotificationFiledYn" nillable="true" type="xsd:string"/>
         </xsd:sequence>
     </xsd:complexType>
 

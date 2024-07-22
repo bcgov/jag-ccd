@@ -244,7 +244,6 @@ public class CourtControllerTests {
         arraignmentType.setEnglishTrialYn("Y");
         arraignmentType.setFrenchTrialYn("Y");
         arraignmentType.setNoneForTrialYn("Y");
-        arraignmentType.setLanguageNotificationFiledYn("Y");
         arraignmentType.setLanguageRightsAdvisedByCourtYn("Y");
 
         crl.getArraignment().add(arraignmentType);
