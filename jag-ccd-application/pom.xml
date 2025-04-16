@@ -134,6 +134,7 @@
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>okhttp</artifactId>
+            <version>4.12.0</version>
         </dependency>
         <dependency>
             <groupId>commons-collections</groupId>
@@ -148,6 +149,7 @@
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
             <artifactId>logging-interceptor</artifactId>
+            <version>4.12.0</version>
         </dependency>
         <dependency>
             <groupId>org.threeten</groupId>
