@@ -8,7 +8,6 @@ import ca.bc.gov.open.ccd.models.RequestSuccessLog;
 import ca.bc.gov.open.ccd.models.serializers.InstantSerializer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import javax.xml.transform.TransformerConfigurationException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -52,7 +51,7 @@ public class CodeController {
     @ResponsePayload
     public GetCodeValuesResponse getCodeValues(
             @RequestPayload GetCodeValues getCodeValues, MessageContext messageContext)
-            throws JsonProcessingException, TransformerConfigurationException {
+            throws JsonProcessingException {
 
         if (messageContext != null) {
             SaajSoapMessage soapResponse = (SaajSoapMessage) messageContext.getResponse();
