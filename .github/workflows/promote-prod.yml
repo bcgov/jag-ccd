@@ -43,14 +43,21 @@ jobs:
           registry: artifacts.developer.gov.bc.ca
           username: ${{ secrets.CCD_ARTIFACTORY_USERNAME }}
           password: ${{ secrets.CCD_ARTIFACTORY_PASSWORD }}
+      
+      - name: Backup Prod Image
+        working-directory: ${{env.WORKING_DIRECTORY}}
+        run: |
+          docker pull artifacts.developer.gov.bc.ca/c52e-${{ github.event.inputs.application }}/${{ github.event.inputs.application }}:prod
+          docker tag artifacts.developer.gov.bc.ca/c52e-${{ github.event.inputs.application }}/${{ github.event.inputs.application }}:prod artifacts.developer.gov.bc.ca/c52e-${{ github.event.inputs.application }}/${{ github.event.inputs.application }}:prod-backup
+          docker push artifacts.developer.gov.bc.ca/c52e-${{ github.event.inputs.application }}/${{ github.event.inputs.application }}:prod-backup
 
-      - name: Docker Pull Dev Image from Artifactory
+      - name: Docker Pull Test Image from Artifactory
         working-directory: ${{env.WORKING_DIRECTORY}}
         run: |
           docker pull artifacts.developer.gov.bc.ca/c52e-${{ github.event.inputs.application }}/${{ github.event.inputs.application }}:test
           docker tag artifacts.developer.gov.bc.ca/c52e-${{ github.event.inputs.application }}/${{ github.event.inputs.application }}:test artifacts.developer.gov.bc.ca/c52e-${{ github.event.inputs.application }}/${{ github.event.inputs.application }}:prod
       
-      - name: Docker Push Test Image To Artifactory
+      - name: Docker Push Prod Image To Artifactory
         working-directory: ${{env.WORKING_DIRECTORY}}
         run: |
           docker push artifacts.developer.gov.bc.ca/c52e-${{ github.event.inputs.application }}/${{ github.event.inputs.application }}:prod
