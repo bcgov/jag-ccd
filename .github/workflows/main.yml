@@ -85,7 +85,27 @@ jobs:
           DOCKER_BUILDKIT: 1
           CONTEXT: ./jag-ccd-application
         run: |
-          docker build -t ${{github.event.inputs.app}}:${{env.gitsha}} ${CONTEXT}
+          docker build -t ${{github.event.inputs.app}}:${{env.gitsha}} ${CONTEXT}       
+
+      #Run Vulnerability Scan usinig Trivy scanner
+      - name: Run Trivy vulnerability scanner for jag-ccd image
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: image
+          image-ref: ${{github.event.inputs.app}}:${{env.gitsha}}
+          format: sarif
+          output: trivy-results.sarif
+          exit-code: 0
+          ignore-unfixed: true
+          limit-severities-for-sarif: true
+          severity: HIGH,CRITICAL
+
+      #Upload results to the Github security tab.
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: trivy-results.sarif           
       
       #Login to OpenShift Container Repository - Silver
       - name: Login to OpenShift Container Repository - Silver
