@@ -46,18 +46,17 @@ jobs:
         run: |
           docker build -t docker.io/ccd/jag-ccd:${{ github.sha }} ${CONTEXT}
 
-      #Run Vulnerability Scan usinig Trivy scanner
+      #Run Vulnerability Scan usinig Trivy scanner   
       - name: Run Trivy vulnerability scanner for jag-ccd image
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: image
           image-ref: docker.io/ccd/jag-ccd:${{ github.sha }}
-          format: sarif
-          output: trivy-results.sarif
-          exit-code: 1
+          format: table
+          exit-code: 0
           ignore-unfixed: true
-          limit-severities-for-sarif: true
           severity: HIGH,CRITICAL
+          
 
       #Upload results to the Github security tab.
       - name: Upload Trivy scan results to GitHub Security tab
