@@ -1,0 +1,29 @@
+<xsd:schema targetNamespace="http://brooks/CCD.Source.AgencyEmails.ws.provider:AgencyEmails"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://brooks/CCD.Source.AgencyEmails.ws.provider:AgencyEmails">
+
+    <xsd:element name="getAgencyEmails">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="agenId" nillable="true" type="xsd:string"/>
+                <xsd:element name="agenCd" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getAgencyEmailsResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="agencyEmails" nillable="true" type="tns:AgencyEmail" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="AgencyEmail">
+        <xsd:sequence>
+            <xsd:element name="email" nillable="true" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>
+
