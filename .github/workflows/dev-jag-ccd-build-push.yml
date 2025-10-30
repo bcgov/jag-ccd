@@ -139,7 +139,7 @@ jobs:
           git config --global user.name "GitHub Actions"
           git clone -b develop --single-branch git@github.com:bcgov-c/tenant-gitops-52e74e.git
           
-          cd gitops/charts
+          cd tenant-gitops-52e74e/charts
 
           # Update the Helm values file with the new image tag and version
           DATETIME=$(date +'%Y-%m-%d %H:%M:%S')  # Get current date and time
