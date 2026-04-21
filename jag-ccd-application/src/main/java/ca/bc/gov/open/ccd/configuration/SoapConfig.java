@@ -111,6 +111,13 @@ public class SoapConfig extends WsConfigurerAdapter {
         return wsdl11Definition;
     }
 
+    @Bean(name = "CCD.Source.AgencyEmails.ws.provider:AgencyEmails")
+    public Wsdl11Definition agencyEmailsWSDL() {
+        SimpleWsdl11Definition wsdl11Definition = new SimpleWsdl11Definition();
+        wsdl11Definition.setWsdl(new ClassPathResource("xsdSchemas/agencyEmails.wsdl"));
+        return wsdl11Definition;
+    }
+
     @Bean(name = "CCD.Source.CourtLists.ws.provider:CourtList")
     public Wsdl11Definition courtListWSDL() {
         SimpleWsdl11Definition wsdl11Definition = new SimpleWsdl11Definition();

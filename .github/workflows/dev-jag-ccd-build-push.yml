@@ -123,32 +123,29 @@ jobs:
           docker tag ${{github.event.inputs.app}}:${{env.gitsha}} ${IMAGE}
           docker push ${IMAGE}
 
-      - name: Checkout ArgoCD Repo
-        id: gitops
-        uses: actions/checkout@v4
+      - name: Set GitOps SSH Key
+        uses: webfactory/ssh-agent@v0.5.4
         with:
-          repository: bcgov-c/tenant-gitops-52e74e
-          ref: develop
-          token: ${{ secrets.ARGO_PAT }} # `ARGO_PAT` is a secret that contains your PAT
-          path: gitops
+          ssh-private-key: ${{ secrets.CCD_SSH_KEY }}
 
       - name: Update Helm Values and Commit
         id: helm
-        if: steps.gitops.outcome == 'success'  # Only run if the previous step (publish) was successful
         run: |
           # Clone the GitOps deployment configuration repository
           # Navigate to the directory containing your Helm values file for the environment develop -> DEV, test -> test and 
-          cd gitops/charts
+          # Commit and push the changes
+          
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git clone -b develop --single-branch git@github.com:bcgov-c/tenant-gitops-52e74e.git
+          
+          cd tenant-gitops-52e74e/charts
 
           # Update the Helm values file with the new image tag and version
           DATETIME=$(date +'%Y-%m-%d %H:%M:%S')  # Get current date and time
 
           sed -i "s/ccdtag: .*/ccdtag: dev # Image Updated on $DATETIME/" ../deploy/dev_values.yaml
           sed -i "s/ccdVersion: .*/ccdVersion: ${{ env.releaseVersion }}.${{ env.gitsha }} # Version Updated on $DATETIME/" ../deploy/dev_values.yaml
-          
-          # Commit and push the changes
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
           
           git add .
           
