@@ -85,6 +85,8 @@
                     <xsd:element name="MdocJustinNo" type="xsd:string" minOccurs="0"/>
                     <xsd:element name="CourtLevelCd" type="xsd:string" minOccurs="0"/>
                     <xsd:element name="CourtClassCd" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="HomeLocationAgencyNm" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="HomeLocationIdentifierCd" type="xsd:string" minOccurs="0"/>
                     <xsd:element name="MdocTypeCd" nillable="true" type="xsd:string"/>
                     <xsd:element name="MdocTypeDsc" nillable="true" type="xsd:string"/>
                     <xsd:element name="MdocImageId" nillable="true" type="xsd:string"/>
