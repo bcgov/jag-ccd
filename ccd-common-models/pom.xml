@@ -9,7 +9,6 @@
     </parent>
 
     <artifactId>ccd-common-models</artifactId>
-    <version>1.0</version>
     <name>ccd-common-models</name>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
