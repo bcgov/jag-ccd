@@ -9,7 +9,6 @@
     </parent>
 
     <artifactId>ccd-court-list-models</artifactId>
-    <version>1.0</version>
     <name>ccd-court-list-models</name>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
