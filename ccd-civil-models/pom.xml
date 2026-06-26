@@ -5,7 +5,7 @@
     <parent>
         <groupId>ca.bc.gov.open</groupId>
         <artifactId>jag-ccd</artifactId>
-        <version>2.0.9-SNAPSHOT</version>
+        <version>2.0.10-SNAPSHOT</version>
     </parent>
 
     <artifactId>ccd-civil-models</artifactId>
@@ -42,7 +42,7 @@
         <dependency>
             <groupId>ca.bc.gov.open</groupId>
             <artifactId>ccd-common-models</artifactId>
-            <version>2.0.9-SNAPSHOT</version>
+            <version>2.0.10-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
