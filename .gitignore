@@ -4,6 +4,8 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 /cc/
+*.versionsBackup
+
 ### STS ###
 .apt_generated
 .classpath

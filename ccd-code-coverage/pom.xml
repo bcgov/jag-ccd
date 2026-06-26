@@ -5,7 +5,7 @@
     <parent>
         <artifactId>jag-ccd</artifactId>
         <groupId>ca.bc.gov.open</groupId>
-        <version>2.0.9-SNAPSHOT</version>
+        <version>2.0.10-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -16,25 +16,25 @@
         <dependency>
             <groupId>ca.bc.gov.open</groupId>
             <artifactId>ccd-common-models</artifactId>
-            <version>2.0.9-SNAPSHOT</version>
+            <version>2.0.10-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>ca.bc.gov.open</groupId>
             <artifactId>ccd-civil-models</artifactId>
-            <version>2.0.9-SNAPSHOT</version>
+            <version>2.0.10-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>ca.bc.gov.open</groupId>
             <artifactId>ccd-court-list-models</artifactId>
-            <version>2.0.9-SNAPSHOT</version>
+            <version>2.0.10-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>ca.bc.gov.open</groupId>
             <artifactId>jag-ccd-application</artifactId>
-            <version>2.0.9-SNAPSHOT</version>
+            <version>2.0.10-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
