@@ -316,7 +316,7 @@
                     <xsd:element name="ThirdPartyOtherCount" nillable="true" type="xsd:string"/>
                     <xsd:element name="HomeAgencyCd" nillable="true" type="xsd:string"/>
                     <xsd:element name="CivilAgencyCd" nillable="true" type="xsd:string"/>
-                    <xsd:element name="HomeAgencyId" nillable="true" type="xsd:string"/>
+                    <xsd:element name="HomeAgencyName" nillable="true" type="xsd:string"/>
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:complexType name="AssetType">
