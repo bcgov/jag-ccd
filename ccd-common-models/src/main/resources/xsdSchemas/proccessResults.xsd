@@ -987,11 +987,13 @@
         </xsd:complexType>
     </xsd:element>
 
-    <xsd:complexType name="processEndorsement">
-        <xsd:sequence>
-            <xsd:element name="Endorsement" nillable="true" type="tns:Endorsement"/>
-        </xsd:sequence>
-    </xsd:complexType>
+    <xsd:element name="processEndorsement">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="Endorsement" nillable="true" type="tns:Endorsement"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
 
     <xsd:complexType name="Endorsement">
         <xsd:sequence>
@@ -1035,11 +1037,13 @@
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:complexType name="processEndorsementResponse">
-        <xsd:sequence>
-            <xsd:element name="status" nillable="true" type="xsd:string"/>
-        </xsd:sequence>
-    </xsd:complexType>
+    <xsd:element name="processEndorsementResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="status" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
 
     <xsd:element name="processMove">
         <xsd:complexType>
