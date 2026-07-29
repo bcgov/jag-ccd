@@ -19,6 +19,8 @@ import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
+import java.text.MessageFormat;
+
 @Slf4j
 @Endpoint
 public class ProcessController {
@@ -639,6 +641,48 @@ public class ProcessController {
                             new OrdsErrorLog(
                                     "Error received from ORDS",
                                     "processArraignment",
+                                    ex.getMessage(),
+                                    inner)));
+            throw new ORDSException();
+        }
+    }
+
+    @PayloadRoot(namespace = PROCESS_NAMESPACE, localPart = "processEndorsement")
+    @ResponsePayload
+    public ProcessEndorsementResponse processEndorsement(@RequestPayload ProcessEndorsement process)
+            throws JsonProcessingException {
+
+        var inner = process.getEndorsement() != null ? process.getEndorsement() : new Endorsement();
+
+        UriComponentsBuilder builder =
+                UriComponentsBuilder.fromUriString(MessageFormat.format("{0}{1}", host, "criminal/endorsement"));
+
+        int i = 0;
+        for (var detail : inner.getEndorsementDetail()) {
+            detail.setEndorsementDetailId(Integer.toString(i++));
+        }
+
+        HttpEntity<Endorsement> payload = new HttpEntity<>(inner, new HttpHeaders());
+
+        try {
+            HttpEntity<ProcessEndorsementResponse> resp =
+                    restTemplate.exchange(
+                            builder.toUriString(),
+                            HttpMethod.POST,
+                            payload,
+                            ProcessEndorsementResponse.class);
+
+            log.info(
+                    objectMapper.writeValueAsString(
+                            new RequestSuccessLog("Request Success", "processEndorsement")));
+            return resp.getBody();
+        } catch (Exception ex) {
+            inner.setEnterUserId("");
+            log.error(
+                    objectMapper.writeValueAsString(
+                            new OrdsErrorLog(
+                                    "Error received from ORDS",
+                                    "processEndorsement",
                                     ex.getMessage(),
                                     inner)));
             throw new ORDSException();

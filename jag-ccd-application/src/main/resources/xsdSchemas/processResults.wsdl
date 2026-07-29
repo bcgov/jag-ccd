@@ -817,6 +817,53 @@
                     <xsd:element name="status" nillable="true" type="xsd:string"/>
                 </xsd:sequence>
             </xsd:complexType>
+            <xsd:complexType name="processEndorsement">
+                <xsd:sequence>
+                    <xsd:element name="Endorsement" nillable="true" type="tns:Endorsement"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Endorsement">
+                <xsd:sequence>
+                    <xsd:element name="CourtAgencyIdentifierCode" nillable="true" type="xsd:string"/>
+                    <xsd:element name="CourtRoomCode" nillable="true" type="xsd:string"/>
+                    <xsd:element name="CourtProceedingDate" nillable="true" type="xsd:string"/>
+                    <xsd:element name="CreationTime" nillable="true" type="xsd:string"/>
+                    <xsd:element name="EnterUserId" nillable="true" type="xsd:string"/>
+                    <xsd:element name="EventTime" nillable="true" type="xsd:string"/>
+                    <xsd:element name="EventTypeCode" nillable="true" type="xsd:string"/>
+                    <xsd:element name="EventLogText" nillable="true" type="xsd:string"/>
+                    <xsd:element name="SourceEventSeqNo" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="unbounded" name="EndorsementDetail" nillable="true" type="tns:EndorsementDetailType"/>
+                    <xsd:element name="SourcePackageId" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ApplyToFileEndorsementType">
+                <xsd:sequence>
+                    <xsd:element name="AppearanceId" nillable="true" type="xsd:string"/>
+                    <xsd:element name="FileNumber" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="EndorsementDetailType">
+                <xsd:sequence>
+                    <xsd:element name="EndorsementDetailId" nillable="true" type="xsd:string"/>
+                    <xsd:element name="ApplyToFileEndorsement" nillable="true" type="tns:ApplyToFileEndorsementType"
+                                 maxOccurs="unbounded"/>
+                    <xsd:element maxOccurs="unbounded" name="EndorsementEvent" nillable="true" type="tns:EndorsementEventType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="EndorsementEventType">
+                <xsd:sequence>
+                    <xsd:element name="EventType" nillable="true" type="xsd:string"/>
+                    <xsd:element name="DetailText" nillable="true" type="xsd:string"/>
+                    <xsd:element name="LeafNodeSequenceNo" nillable="true" type="xsd:string"/>
+                    <xsd:element name="ParentXmlMessageId" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="processEndorsementResponse">
+                <xsd:sequence>
+                    <xsd:element name="status" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
             <xsd:complexType name="processMove">
                 <xsd:sequence>
                     <xsd:element name="Move" nillable="true" type="tns:Move"/>
