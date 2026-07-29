@@ -997,10 +997,10 @@
         <xsd:sequence>
             <xsd:element name="CourtAgencyIdentifierCode" nillable="true" type="xsd:string"/>
             <xsd:element name="CourtRoomCode" nillable="true" type="xsd:string"/>
-            <xsd:element name="CourtProceedingDate" nillable="true" type="xsd:string"/>
-            <xsd:element name="CreationTime" nillable="true" type="xsd:string"/>
+            <xsd:element name="CourtProceedingDate" nillable="true" type="xsd:dateTime"/>
+            <xsd:element name="CreationTime" nillable="true" type="xsd:dateTime"/>
             <xsd:element name="EnterUserId" nillable="true" type="xsd:string"/>
-            <xsd:element name="EventTime" nillable="true" type="xsd:string"/>
+            <xsd:element name="EventTime" nillable="true" type="xsd:dateTime"/>
             <xsd:element name="EventTypeCode" nillable="true" type="xsd:string"/>
             <xsd:element name="EventLogText" nillable="true" type="xsd:string"/>
             <xsd:element name="SourceEventSeqNo" nillable="true" type="xsd:string"/>

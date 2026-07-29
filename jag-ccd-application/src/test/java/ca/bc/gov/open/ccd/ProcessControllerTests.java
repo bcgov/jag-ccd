@@ -27,6 +27,7 @@ import org.springframework.web.client.RestTemplate;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class ProcessControllerTests {
+
     @Mock private ObjectMapper objectMapper;
     @Mock private RestTemplate restTemplate;
     @Mock private ProcessController processController;
@@ -876,6 +877,57 @@ public class ProcessControllerTests {
         var resp = processController.processArraignment(req);
 
         Assertions.assertNotNull(resp);
+    }
+
+    @Test
+    public void processEndorsementTest() throws JsonProcessingException {
+
+        var req = new ProcessEndorsement();
+        var one = new Endorsement();
+
+        one.setCourtAgencyIdentifierCode("A");
+        one.setCourtRoomCode("A");
+        one.setCourtProceedingDate(Instant.now());
+        one.setCreationTime(Instant.now());
+        one.setEnterUserId("A");
+        one.setEventTime(Instant.now());
+        one.setEventTypeCode("A");
+        one.setEventLogText("A");
+        one.setSourceEventSeqNo("A");
+        one.setSourcePackageId("A");
+
+        var ad = new EndorsementDetailType();
+        var af = new ApplyToFileEndorsementType();
+        af.setAppearanceId("A");
+        af.setFileNumber("A");
+        ad.getApplyToFileEndorsement().add(af);
+
+        var ae = new EndorsementEventType();
+        ae.setEventType("A");
+        ae.setDetailText("A");
+
+        ad.getEndorsementEvent().add(ae);
+        one.getEndorsementDetail().add(ad);
+        req.setEndorsement(one);
+
+        var out = new ProcessEndorsementResponse();
+        out.setStatus("A");
+
+        ResponseEntity<ProcessEndorsementResponse> responseEntity =
+                new ResponseEntity<>(out, HttpStatus.OK);
+
+        // Set up to mock ords response
+        when(restTemplate.exchange(
+                Mockito.any(String.class),
+                Mockito.eq(HttpMethod.POST),
+                Mockito.<HttpEntity<String>>any(),
+                Mockito.<Class<ProcessEndorsementResponse>>any()))
+                .thenReturn(responseEntity);
+
+        var resp = processController.processEndorsement(req);
+
+        Assertions.assertNotNull(resp);
+
     }
 
     @Test
