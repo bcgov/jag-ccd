@@ -817,6 +817,53 @@
                     <xsd:element name="status" nillable="true" type="xsd:string"/>
                 </xsd:sequence>
             </xsd:complexType>
+            <xsd:complexType name="processEndorsement">
+                <xsd:sequence>
+                    <xsd:element name="Endorsement" nillable="true" type="tns:Endorsement"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="Endorsement">
+                <xsd:sequence>
+                    <xsd:element name="CourtAgencyIdentifierCode" nillable="true" type="xsd:string"/>
+                    <xsd:element name="CourtRoomCode" nillable="true" type="xsd:string"/>
+                    <xsd:element name="CourtProceedingDate" nillable="true" type="xsd:string"/>
+                    <xsd:element name="CreationTime" nillable="true" type="xsd:string"/>
+                    <xsd:element name="EnterUserId" nillable="true" type="xsd:string"/>
+                    <xsd:element name="EventTime" nillable="true" type="xsd:string"/>
+                    <xsd:element name="EventTypeCode" nillable="true" type="xsd:string"/>
+                    <xsd:element name="EventLogText" nillable="true" type="xsd:string"/>
+                    <xsd:element name="SourceEventSeqNo" nillable="true" type="xsd:string"/>
+                    <xsd:element maxOccurs="unbounded" name="EndorsementDetail" nillable="true" type="tns:EndorsementDetailType"/>
+                    <xsd:element name="SourcePackageId" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="ApplyToFileEndorsementType">
+                <xsd:sequence>
+                    <xsd:element name="AppearanceId" nillable="true" type="xsd:string"/>
+                    <xsd:element name="FileNumber" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="EndorsementDetailType">
+                <xsd:sequence>
+                    <xsd:element name="EndorsementDetailId" nillable="true" type="xsd:string"/>
+                    <xsd:element name="ApplyToFileEndorsement" nillable="true" type="tns:ApplyToFileEndorsementType"
+                                 maxOccurs="unbounded"/>
+                    <xsd:element maxOccurs="unbounded" name="EndorsementEvent" nillable="true" type="tns:EndorsementEventType"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="EndorsementEventType">
+                <xsd:sequence>
+                    <xsd:element name="EventType" nillable="true" type="xsd:string"/>
+                    <xsd:element name="DetailText" nillable="true" type="xsd:string"/>
+                    <xsd:element name="LeafNodeSequenceNo" nillable="true" type="xsd:string"/>
+                    <xsd:element name="ParentXmlMessageId" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
+            <xsd:complexType name="processEndorsementResponse">
+                <xsd:sequence>
+                    <xsd:element name="status" nillable="true" type="xsd:string"/>
+                </xsd:sequence>
+            </xsd:complexType>
             <xsd:complexType name="processMove">
                 <xsd:sequence>
                     <xsd:element name="Move" nillable="true" type="tns:Move"/>
@@ -1270,6 +1317,8 @@
             <xsd:element name="processCivilOrderResultResponse" type="tns:processCivilOrderResultResponse"/>
             <xsd:element name="processArraignment" type="tns:processArraignment"/>
             <xsd:element name="processArraignmentResponse" type="tns:processArraignmentResponse"/>
+            <xsd:element name="processEndorsement" type="tns:processEndorsement"/>
+            <xsd:element name="processEndorsementResponse" type="tns:processEndorsementResponse"/>
             <xsd:element name="processGenericResult" type="tns:processGenericResult"/>
             <xsd:element name="processGenericResultResponse" type="tns:processGenericResultResponse"/>
             <xsd:element name="processNote" type="tns:processNote"/>
@@ -1328,6 +1377,10 @@
         <wsdl:part name="parameters" element="tns:processArraignment">
         </wsdl:part>
     </wsdl:message>
+    <wsdl:message name="ProcessResults_PortType_processEndorsement">
+        <wsdl:part name="parameters" element="tns:processEndorsement">
+        </wsdl:part>
+    </wsdl:message>
     <wsdl:message name="ProcessResults_PortType_processCriminalResult">
         <wsdl:part name="parameters" element="tns:processCriminalResult">
         </wsdl:part>
@@ -1338,6 +1391,10 @@
     </wsdl:message>
     <wsdl:message name="ProcessResults_PortType_processArraignmentResponse">
         <wsdl:part name="parameters" element="tns:processArraignmentResponse">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="ProcessResults_PortType_processEndorsementResponse">
+        <wsdl:part name="parameters" element="tns:processEndorsementResponse">
         </wsdl:part>
     </wsdl:message>
     <wsdl:message name="ProcessResults_PortType_processSentenceResponse">
@@ -1549,6 +1606,12 @@
             <wsdl:output message="tns:ProcessResults_PortType_processArraignmentResponse">
             </wsdl:output>
         </wsdl:operation>
+        <wsdl:operation name="processEndorsement">
+            <wsdl:input message="tns:ProcessResults_PortType_processEndorsement">
+            </wsdl:input>
+            <wsdl:output message="tns:ProcessResults_PortType_processEndorsementResponse">
+            </wsdl:output>
+        </wsdl:operation>
         <wsdl:operation name="processGenericResult">
             <wsdl:input message="tns:ProcessResults_PortType_processGenericResult">
             </wsdl:input>
@@ -1736,6 +1799,16 @@
         </wsdl:operation>
         <wsdl:operation name="processArraignment">
             <soap:operation soapAction="CCD_Source_ProcessResults_ws_provider_ProcessResults_Binder_processArraignment"
+                            style="document"/>
+            <wsdl:input>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body parts="parameters" use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="processEndorsement">
+            <soap:operation soapAction="CCD_Source_ProcessResults_ws_provider_ProcessResults_Binder_processEndorsement"
                             style="document"/>
             <wsdl:input>
                 <soap:body parts="parameters" use="literal"/>
