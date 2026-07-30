@@ -90,6 +90,7 @@
                          maxOccurs="unbounded"/>
             <xsd:element name="CFCOrder" nillable="true" type="tns:CFCOrderType" minOccurs="0" maxOccurs="unbounded"/>
             <xsd:element name="Arraignment" nillable="true" type="tns:ArraignmentType" minOccurs="0" maxOccurs="unbounded"/>
+            <xsd:element name="Endorsement" nillable="true" type="tns:Endorsement" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
 
@@ -341,6 +342,7 @@
                          maxOccurs="unbounded"/>
             <xsd:element name="OrderToVary" nillable="true" type="tns:OrderToVaryType" minOccurs="0"
                          maxOccurs="unbounded"/>
+            <xsd:element name="Endorsement" nillable="true" type="tns:Endorsement" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
     </xsd:complexType>
 
@@ -553,10 +555,10 @@
 
     <xsd:complexType name="Endorsement">
         <xsd:sequence>
-            <xsd:element name="EndorsementDate" nillable="true"  type="xsd:dateTime" minOccurs="0"/>
-            <xsd:element name="EndorsementCd" nillable="true"  type="xsd:string" minOccurs="0"/>
-            <xsd:element name="EndorsementDsc" nillable="true"  type="xsd:string" minOccurs="0"/>
-            <xsd:element name="EndorsementTemplateTxt" nillable="true"  type="xsd:string" minOccurs="0" />
+            <xsd:element name="EndorsementDate" nillable="true"  type="xsd:string"/>
+            <xsd:element name="EndorsementCd" nillable="true"  type="xsd:string"/>
+            <xsd:element name="EndorsementDsc" nillable="true"  type="xsd:string"/>
+            <xsd:element name="EndorsementTemplateTxt" nillable="true"  type="xsd:string"/>
         </xsd:sequence>
     </xsd:complexType>
 
