@@ -551,6 +551,14 @@
         </xsd:sequence>
     </xsd:complexType>
 
+    <xsd:complexType name="Endorsement">
+        <xsd:sequence>
+            <xsd:element name="EndorsementDate" nillable="true"  type="xsd:dateTime" minOccurs="0"/>
+            <xsd:element name="EndorsementCd" nillable="true"  type="xsd:string" minOccurs="0"/>
+            <xsd:element name="EndorsementDsc" nillable="true"  type="xsd:string" minOccurs="0"/>
+            <xsd:element name="EndorsementTemplateTxt" nillable="true"  type="xsd:string" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
 
 </xsd:schema>
 
