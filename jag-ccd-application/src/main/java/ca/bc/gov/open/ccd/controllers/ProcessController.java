@@ -621,7 +621,7 @@ public class ProcessController {
         }
 
         HttpEntity<Arraignment> payload = new HttpEntity<>(inner, new HttpHeaders());
-        
+
         try {
             HttpEntity<ProcessArraignmentResponse> resp =
                     restTemplate.exchange(
@@ -651,24 +651,17 @@ public class ProcessController {
     @ResponsePayload
     public ProcessEndorsementResponse processEndorsement(@RequestPayload ProcessEndorsement process)
             throws JsonProcessingException {
-        //Temporary work around to make endorsement work
-        //var inner = process.getEndorsement() != null ? process.getEndorsement() : new Endorsement();
+        var inner = process.getEndorsement() != null ? process.getEndorsement() : new Endorsement();
 
         UriComponentsBuilder builder =
                 UriComponentsBuilder.fromUriString(MessageFormat.format("{0}{1}", host, "criminal/endorsement"));
 
-        //int i = 0;
-        //for (var detail : inner.getEndorsementDetail()) {
-        //    detail.setEndorsementDetailId(Integer.toString(i++));
-        //}
-
         int i = 0;
-        for (EndorsementDetailType endorsementDetailType : process.getEndorsement().getEndorsementDetail()) {
-            endorsementDetailType.setEndorsementDetailId(Integer.toString(i++));
+        for (var detail : inner.getEndorsementDetail()) {
+            detail.setEndorsementDetailId(Integer.toString(i++));
         }
 
-        //HttpEntity<Endorsement> payload = new HttpEntity<>(inner, new HttpHeaders());
-        HttpEntity<ProcessEndorsement> payload = new HttpEntity<>(process, new HttpHeaders());
+        HttpEntity<Endorsement> payload = new HttpEntity<>(inner, new HttpHeaders());
 
         try {
 
@@ -685,8 +678,7 @@ public class ProcessController {
             return resp.getBody();
         } catch (Exception ex) {
 
-            //inner.setEnterUserId("");
-            process.getEndorsement().setEnterUserId("");
+            inner.setEnterUserId("");
 
             log.error(
                     objectMapper.writeValueAsString(
