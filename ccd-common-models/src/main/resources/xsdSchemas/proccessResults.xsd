@@ -1041,6 +1041,7 @@
         <xsd:complexType>
             <xsd:sequence>
                 <xsd:element name="status" nillable="true" type="xsd:string"/>
+                <xsd:element name="status_msg" nillable="true" type="xsd:string"/>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>

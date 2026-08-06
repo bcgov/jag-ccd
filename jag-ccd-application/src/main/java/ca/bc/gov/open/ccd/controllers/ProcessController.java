@@ -621,7 +621,7 @@ public class ProcessController {
         }
 
         HttpEntity<Arraignment> payload = new HttpEntity<>(inner, new HttpHeaders());
-
+        
         try {
             HttpEntity<ProcessArraignmentResponse> resp =
                     restTemplate.exchange(
@@ -651,20 +651,27 @@ public class ProcessController {
     @ResponsePayload
     public ProcessEndorsementResponse processEndorsement(@RequestPayload ProcessEndorsement process)
             throws JsonProcessingException {
-
-        var inner = process.getEndorsement() != null ? process.getEndorsement() : new Endorsement();
+        //Temporary work around to make endorsement work
+        //var inner = process.getEndorsement() != null ? process.getEndorsement() : new Endorsement();
 
         UriComponentsBuilder builder =
                 UriComponentsBuilder.fromUriString(MessageFormat.format("{0}{1}", host, "criminal/endorsement"));
 
+        //int i = 0;
+        //for (var detail : inner.getEndorsementDetail()) {
+        //    detail.setEndorsementDetailId(Integer.toString(i++));
+        //}
+
         int i = 0;
-        for (var detail : inner.getEndorsementDetail()) {
-            detail.setEndorsementDetailId(Integer.toString(i++));
+        for (EndorsementDetailType endorsementDetailType : process.getEndorsement().getEndorsementDetail()) {
+            endorsementDetailType.setEndorsementDetailId(Integer.toString(i++));
         }
 
-        HttpEntity<Endorsement> payload = new HttpEntity<>(inner, new HttpHeaders());
+        //HttpEntity<Endorsement> payload = new HttpEntity<>(inner, new HttpHeaders());
+        HttpEntity<ProcessEndorsement> payload = new HttpEntity<>(process, new HttpHeaders());
 
         try {
+
             HttpEntity<ProcessEndorsementResponse> resp =
                     restTemplate.exchange(
                             builder.toUriString(),
@@ -677,14 +684,17 @@ public class ProcessController {
                             new RequestSuccessLog("Request Success", "processEndorsement")));
             return resp.getBody();
         } catch (Exception ex) {
-            inner.setEnterUserId("");
+
+            //inner.setEnterUserId("");
+            process.getEndorsement().setEnterUserId("");
+
             log.error(
                     objectMapper.writeValueAsString(
                             new OrdsErrorLog(
                                     "Error received from ORDS",
                                     "processEndorsement",
                                     ex.getMessage(),
-                                    inner)));
+                                    process)));
             throw new ORDSException();
         }
     }
