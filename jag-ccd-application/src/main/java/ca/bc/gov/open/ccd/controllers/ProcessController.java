@@ -651,6 +651,7 @@ public class ProcessController {
     @ResponsePayload
     public ProcessEndorsementResponse processEndorsement(@RequestPayload ProcessEndorsement process)
             throws JsonProcessingException {
+
         var inner = process.getEndorsement() != null ? process.getEndorsement() : new Endorsement();
 
         UriComponentsBuilder builder =
