@@ -621,7 +621,7 @@ public class ProcessController {
         }
 
         HttpEntity<Arraignment> payload = new HttpEntity<>(inner, new HttpHeaders());
-        log.info(objectMapper.writeValueAsString(payload));
+        
         try {
             HttpEntity<ProcessArraignmentResponse> resp =
                     restTemplate.exchange(
