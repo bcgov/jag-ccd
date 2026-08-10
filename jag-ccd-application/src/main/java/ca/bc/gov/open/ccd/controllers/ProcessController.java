@@ -673,9 +673,15 @@ public class ProcessController {
                             payload,
                             ProcessEndorsementResponse.class);
 
-            log.info(
-                    objectMapper.writeValueAsString(
-                            new RequestSuccessLog("Request Success", "processEndorsement")));
+            //Add logging for failed messages.
+            if (resp.getBody()!= null && resp.getBody().getStatus().equals("1")) {
+                log.info(
+                        objectMapper.writeValueAsString(
+                                new RequestSuccessLog("Request Success", "processEndorsement")));
+            } else {
+                log.error(resp.getBody().getStatusMsg());
+            }
+
             return resp.getBody();
         } catch (Exception ex) {
 
