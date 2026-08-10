@@ -5,7 +5,7 @@
     <parent>
         <groupId>ca.bc.gov.open</groupId>
         <artifactId>jag-ccd</artifactId>
-        <version>2.0.10</version>
+        <version>2.0.11</version>
     </parent>
 
     <artifactId>jag-ccd-application</artifactId>
@@ -184,19 +184,19 @@
         <dependency>
             <groupId>ca.bc.gov.open</groupId>
             <artifactId>ccd-common-models</artifactId>
-            <version>2.0.10</version>
+            <version>2.0.11</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>ca.bc.gov.open</groupId>
             <artifactId>ccd-civil-models</artifactId>
-            <version>2.0.10</version>
+            <version>2.0.11</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>ca.bc.gov.open</groupId>
             <artifactId>ccd-court-list-models</artifactId>
-            <version>2.0.10</version>
+            <version>2.0.11</version>
             <scope>compile</scope>
         </dependency>
 
@@ -225,6 +225,13 @@
                         </exclude>
                     </excludes>
                 </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>build-info</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
             <plugin>
                 <groupId>com.diffplug.spotless</groupId>
